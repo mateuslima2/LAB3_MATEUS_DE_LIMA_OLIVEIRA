@@ -1,33 +1,36 @@
 package lab3;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Agenda {
-	
-	Contato contatos[] = new Contato[100]; 
+	Map<Integer, Contato> contatos = new HashMap<Integer, Contato>();
+	//Contato contatos[] = new Contato[100]; 
 	private int cont = 0;
 	public Agenda() {
 	}
 	
 	public boolean cadastrarContato(String nome, String sobrenome, String telefone, int posicao) {
-		if ((posicao < 0)||(posicao > 100)) {
-			return false;
-		}else {
-			Contato contato = new Contato(nome, sobrenome, posicao, telefone);
-			contatos[posicao-1] = contato;
-			cont ++;
+		
+		try {
+			Contato contato = new Contato(nome, sobrenome, telefone, posicao);
+			contatos.put(posicao, contato);
 			return true;
-		}
-	}
-	
-	public int getCont() {
-		return cont;
+			
+		}catch(NullPointerException e) {
+			return false;
+		}catch(IndexOutOfBoundsException i) {
+			return false;
+		}	
 	}
 
 	public String procurarPorPosicao(int posicao) {
-		for (int i = 0 ; i < contatos.length ; i++) {
-			if (contatos[i].getPosicao() == (posicao)) {	
-				return contatos[i].toString();
-			}
+		if (posicao <= 0 || posicao > 100) {
+			throw new IndexOutOfBoundsException("Posição inválida");
 		}
-		return null;
+		if(!contatos.get(posicao).equals(null)){
+			return contatos.get(posicao).toString();
+		}
+		return "POSIÇÃO INVÁLIDA!";
 	}
 
 }

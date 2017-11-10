@@ -6,11 +6,21 @@ public class Contato {
 	private String telefone;
 	private int posicao;
 	
-	public Contato(String nome,String sobrenome, int posicao, String telefone) {
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.telefone = telefone;
-		this.posicao = posicao;
+	public Contato(String nome,String sobrenome, String telefone, int posicao) {
+		
+		if (nome == null || sobrenome == null || telefone == null) {
+			throw new NullPointerException("Nome Nulo");
+			
+		}else if (posicao <= 0 || posicao > 100) {
+			
+			throw new IndexOutOfBoundsException("Posição Inválida");
+			
+			}else {
+				this.nome = nome;
+				this.sobrenome = sobrenome;
+				this.telefone = telefone;
+				this.posicao = posicao;
+			}	
 	}
 	
 	public int getPosicao() {

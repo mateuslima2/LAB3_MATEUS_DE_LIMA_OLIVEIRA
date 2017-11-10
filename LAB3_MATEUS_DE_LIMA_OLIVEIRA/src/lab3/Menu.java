@@ -27,10 +27,10 @@ public class Menu {
 				break;
 				
 			default:
-				System.out.println("Op√ß√£o INV√ÅLIDA!");
+				System.out.println("OpÁ„o INV¡LIDA!");
 				break;
 			}
-		} while (opcao != "S");
+		} while (!opcao.equals("S"));
 	}
 	
 	private static void menu() { // menu principal
@@ -38,12 +38,12 @@ public class Menu {
 		System.out.println("(L)istar Contatos");
 		System.out.println("(E)xibir Contato");
 		System.out.println("(S)air\n");
-		System.out.println("Op√ß√£o>");
+		System.out.println("OpÁ„o>");
 	}
 
 	public static void cadastrar() {
 		
-		System.out.print("Posi√ß√£o: ");
+		System.out.print("PosiÁ„o: ");
 		int posicao = sc.nextInt();
 		
 		System.out.print("Nome: ");
@@ -58,14 +58,15 @@ public class Menu {
 		if (agenda.cadastrarContato(nome, sobrenome, telefone, posicao)) {
 			System.out.println("CADASTRO REALIZADO!\n");
 		}else {
-			System.out.println("POSI√á√ÉO INV√ÅLIDA!\n");
+			System.out.println("POSI«√O INV¡LIDA!\n");
 		}
 		
 	}
 	
 	public static void listar() {
-		for (int i = 0 ; i < agenda.getCont() ; i++) 
-			System.out.println(agenda.contatos[i].toString());
+		for (int key: agenda.contatos.keySet()) {
+		    System.out.println(agenda.contatos.get(key).toString());
+		}
 		System.out.println("\n");
 	}
 	
