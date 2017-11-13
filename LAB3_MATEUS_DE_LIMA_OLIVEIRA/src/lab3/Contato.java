@@ -11,16 +11,12 @@ public class Contato {
 		if (nome == null || sobrenome == null || telefone == null) {
 			throw new NullPointerException("Nome Nulo");
 			
-		}else if (posicao <= 0 || posicao > 100) {
-			
-			throw new IndexOutOfBoundsException("Posição Inválida");
-			
-			}else {
-				this.nome = nome;
-				this.sobrenome = sobrenome;
-				this.telefone = telefone;
-				this.posicao = posicao;
-			}	
+		}else {
+			this.nome = nome;
+			this.sobrenome = sobrenome;
+			this.telefone = telefone;
+			this.posicao = posicao;
+		}	
 	}
 	
 	public int getPosicao() {
@@ -31,5 +27,4 @@ public class Contato {
 	public String toString() {
 		return posicao + " - " + nome + " " + sobrenome;
 	}
-
 }

@@ -10,27 +10,24 @@ public class Agenda {
 	}
 	
 	public boolean cadastrarContato(String nome, String sobrenome, String telefone, int posicao) {
-		
 		try {
 			Contato contato = new Contato(nome, sobrenome, telefone, posicao);
 			contatos.put(posicao, contato);
 			return true;
-			
 		}catch(NullPointerException e) {
 			return false;
-		}catch(IndexOutOfBoundsException i) {
-			return false;
-		}	
+		}
+		
 	}
 
 	public String procurarPorPosicao(int posicao) {
 		if (posicao <= 0 || posicao > 100) {
-			throw new IndexOutOfBoundsException("Posição inválida");
+			throw new IndexOutOfBoundsException("Posiï¿½ï¿½o invï¿½lida");
 		}
 		if(!contatos.get(posicao).equals(null)){
 			return contatos.get(posicao).toString();
 		}
-		return "POSIÇÃO INVÁLIDA!";
+		return "POSIï¿½ï¿½O INVï¿½LIDA!";
 	}
 
 }

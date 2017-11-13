@@ -27,7 +27,7 @@ public class Menu {
 				break;
 				
 			default:
-				System.out.println("Opção INVÁLIDA!");
+				System.out.println("Opï¿½ï¿½o INVï¿½LIDA!");
 				break;
 			}
 		} while (!opcao.equals("S"));
@@ -38,29 +38,32 @@ public class Menu {
 		System.out.println("(L)istar Contatos");
 		System.out.println("(E)xibir Contato");
 		System.out.println("(S)air\n");
-		System.out.println("Opção>");
+		System.out.print("Opï¿½ï¿½o>");
 	}
 
 	public static void cadastrar() {
 		
-		System.out.print("Posição: ");
+		System.out.print("Posiï¿½ï¿½o: ");
 		int posicao = sc.nextInt();
 		
-		System.out.print("Nome: ");
-		String nome = sc.next();
-		
-		System.out.print("Sobrenome: ");
-		String sobrenome = sc.next();
-		
-		System.out.print("Telefone: ");
-		String telefone = sc.next();
-		
-		if (agenda.cadastrarContato(nome, sobrenome, telefone, posicao)) {
-			System.out.println("CADASTRO REALIZADO!\n");
+		if (!(posicao <= 0 || posicao > 100)) {
+			
+			System.out.print("Nome: ");
+			String nome = sc.next();
+			System.out.print("Sobrenome: ");
+			String sobrenome = sc.next();
+			System.out.print("Telefone: ");
+			String telefone = sc.next();
+			
+			if (agenda.cadastrarContato(nome, sobrenome, telefone, posicao)) {
+				System.out.println("CADASTRO REALIZADO!\n");
+			}else {
+				System.out.println("POSIï¿½ï¿½O INVï¿½LIDA!\n");
+			}
+			
 		}else {
-			System.out.println("POSIÇÃO INVÁLIDA!\n");
+			System.out.println("POSIï¿½ï¿½O INVï¿½LIDA!\\n");
 		}
-		
 	}
 	
 	public static void listar() {
@@ -73,7 +76,11 @@ public class Menu {
 	public static void exibir() {
 		System.out.print("Contato> ");
 		int posicao = sc.nextInt();		
-		System.out.println(agenda.procurarPorPosicao(posicao));
+		try {
+			System.out.println(agenda.procurarPorPosicao(posicao));
+		}catch(IndexOutOfBoundsException ioe) {
+			System.out.println("PosiÃ§Ã£o InvÃ¡lida");
+		}
 	}
 
 }
