@@ -27,13 +27,13 @@ public class Menu {
 				break;
 				
 			default:
-				System.out.println("OpÃ§Ã£o INVÃ�LIDA!");
+				System.out.println("OPÇÃO INVÁLIDA!");
 				break;
 			}
 		} while (!opcao.equals("S"));
 	}
 	 /**
-	 * ContÃ©m o menu apresentado o user
+	 * Contam o menu apresentado o user
 	 * @returns void
 	 */
 	private static void menu() { // menu principal
@@ -41,17 +41,17 @@ public class Menu {
 		System.out.println("(L)istar Contatos");
 		System.out.println("(E)xibir Contato");
 		System.out.println("(S)air\n");
-		System.out.print("OpÃ§Ã£o>");
+		System.out.print("Opção>");
 	}
 	 /**
-	 * Recebe dados do contato e verifica a posiÃ§Ã£o passada.
-	 * A posiÃ§Ã£o Ã© verificada aqui, pois posiÃ§Ã£o invalida permite recuperaÃ§Ã£o. 
-	 * Logo, faz sentido nÃ£o lanÃ§ar uma exceÃ§Ã£o.
+	 * Recebe dados do contato e verifica a posição passada.
+	 * A posição é verificada aqui, pois posição invalida permite recuperação. 
+	 * Logo, faz sentido não lançar uma exceção.
 	 * @returns void
 	 */
 	public static void cadastrar() {
 		
-		System.out.print("PosiÃ§Ã£o: ");
+		System.out.print("Posição: ");
 		int posicao = sc.nextInt();
 		sc.nextLine();
 		System.out.print("Nome: \n");
@@ -67,7 +67,7 @@ public class Menu {
 			agenda.cadastrarContato(nome, sobrenome, telefone, posicao); 
 				
 		}else {
-			System.out.println("POSIÃ‡ÃƒO INVÃ�LIDA!\\n");
+			System.out.println("POSIÇÃO INVÁLIDA!\n");
 		}
 	}
 

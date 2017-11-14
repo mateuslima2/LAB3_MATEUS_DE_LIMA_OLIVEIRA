@@ -14,12 +14,12 @@ public class Contato {
 	*/
 	private String telefone;
 	/**
-	* PosiÃ§Ã£o do contato. 
+	* Posição do contato. 
 	*/
 	private int posicao;
 
 	/**
-	* ConstrÃ³i um contato a partir do nome, sobrenome, telegone e posiÃ§Ã£o
+	* Construção um contato a partir do nome, sobrenome, telegone e posição
 	* @param nome o nome do contato
 	* @param sobrenome o sobrenome do contato
 	* @param telefone o telefone do contato
@@ -41,9 +41,9 @@ public class Contato {
 	}
 	
 	/**
-	* Retorna a String que representa o contato. Cotnendo posiÃ§Ã£o, nome e sobrenome
+	* Retorna a String que representa o contato. Contendo posição, nome e sobrenome
 	*
-	* @returns a representaÃ§Ã£o em String de um contato.
+	* @returns a representação em String de um contato.
 	*/
 	@Override
 	public String toString() {
