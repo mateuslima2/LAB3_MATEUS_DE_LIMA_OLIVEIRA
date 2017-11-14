@@ -26,8 +26,8 @@ public class Contato {
 	* @param posicao a posicao do contato
 	*/
 	public Contato(String nome,String sobrenome, String telefone, int posicao) {
-		if (nome == null || sobrenome == null || telefone == null) {
-			throw new NullPointerException("Nome Nulo");
+		if (nome.equals(null)  || sobrenome.equals(null) || telefone.equals(null) || nome.equals(" ")  || sobrenome.equals(" ") || telefone.equals(" ")) {
+			throw new NullPointerException("Campo(s) Nulo");
 		}else {
 			this.nome = nome;
 			this.sobrenome = sobrenome;
@@ -39,6 +39,7 @@ public class Contato {
 	public int getPosicao() {
 		return posicao;
 	}
+	
 	/**
 	* Retorna a String que representa o contato. Cotnendo posição, nome e sobrenome
 	*

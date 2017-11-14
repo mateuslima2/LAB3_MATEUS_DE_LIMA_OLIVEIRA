@@ -27,13 +27,13 @@ public class Menu {
 				break;
 				
 			default:
-				System.out.println("Opção INVÁLIDA!");
+				System.out.println("OpÃ§Ã£o INVÃ�LIDA!");
 				break;
 			}
 		} while (!opcao.equals("S"));
 	}
 	 /**
-	 * Contém o menu apresentado o user
+	 * ContÃ©m o menu apresentado o user
 	 * @returns void
 	 */
 	private static void menu() { // menu principal
@@ -41,17 +41,17 @@ public class Menu {
 		System.out.println("(L)istar Contatos");
 		System.out.println("(E)xibir Contato");
 		System.out.println("(S)air\n");
-		System.out.print("Opção>");
+		System.out.print("OpÃ§Ã£o>");
 	}
 	 /**
-	 * Recebe dados do contato e verifica a posição passada.
-	 * A posição é verificada aqui, pois posição invalida permite recuperação. 
-	 * Logo, faz sentido não lançar uma exceção.
+	 * Recebe dados do contato e verifica a posiÃ§Ã£o passada.
+	 * A posiÃ§Ã£o Ã© verificada aqui, pois posiÃ§Ã£o invalida permite recuperaÃ§Ã£o. 
+	 * Logo, faz sentido nÃ£o lanÃ§ar uma exceÃ§Ã£o.
 	 * @returns void
 	 */
 	public static void cadastrar() {
 		
-		System.out.print("Posição: ");
+		System.out.print("PosiÃ§Ã£o: ");
 		int posicao = sc.nextInt();
 		sc.nextLine();
 		System.out.print("Nome: \n");
@@ -64,13 +64,17 @@ public class Menu {
 		String telefone = sc.nextLine();
 		
 		if (!(posicao <= 0 || posicao > 100)) {	
-			if (agenda.cadastrarContato(nome, sobrenome, telefone, posicao)) 
-				System.out.println("CADASTRO REALIZADO!\n");	
+			agenda.cadastrarContato(nome, sobrenome, telefone, posicao); 
+				
 		}else {
-			System.out.println("POSIÇÃO INVÁLIDA!\\n");
+			System.out.println("POSIÃ‡ÃƒO INVÃ�LIDA!\\n");
 		}
 	}
-	
+
+	/**
+	 * Lista todos os contatos presentes na agenda
+	 * @returns void
+	 */
 	public static void listar() {
 		for (int key: agenda.contatos.keySet()) {
 		    System.out.println(agenda.contatos.get(key).toString());
@@ -78,16 +82,18 @@ public class Menu {
 		System.out.println("\n");
 	}
 	
+	/**
+	 * Exibe determinado contato de acordo com a posição passada pelo user.
+	 * @returns void
+	 */
 	public static void exibir() {
 		System.out.print("Contato> ");
 		int posicao = sc.nextInt();	
-		
+		sc.nextLine();
 		try {
 			System.out.println(agenda.procurarPorPosicao(posicao));
 		}catch(IndexOutOfBoundsException ioe) {
-			System.out.println("Posição Inválida");
+			System.out.println("PosiÃ§Ã£o InvÃ¡lida");
 		}
-		
 	}
-
 }
