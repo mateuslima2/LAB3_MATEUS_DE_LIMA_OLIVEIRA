@@ -21,13 +21,5 @@ public class ContatoTest {
 		contato = new Contato("Mateus", "Lima", null, 1);
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
-	public void cadastrarPosicaoMaior() {
-		contato = new Contato("Mateus", "Lima", "95565845", 102);
-	}
-	
-	@Test(expected = IndexOutOfBoundsException.class)
-	public void cadastrarPosicaoMenor() {
-		contato = new Contato("Mateus", "Lima", "95565845", 0);
-	}
+
 }
